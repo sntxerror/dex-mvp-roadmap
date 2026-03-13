@@ -1,4 +1,4 @@
-# MVP Roadmap
+# MobileCoin Web DEX MVP Roadmap
 
 The scope, architecture, user stories, and sequential implementation plan for the **MobileCoin Web DEX MVP**.
 
@@ -46,11 +46,11 @@ We will need `DEQS` for quote submission, discovery, live updates, and order dis
 
 `DEQS` provides a decentralized quoting service for signed orders built around SCI-based trading. It supports order submission, order retrieval, streaming updates, P2P order gossip, and a local order database and it relies on a synced MobileCoin ledger in order to validate and prune orders.
 
-### `Full-Service`
+### Full-Service
 
 `Full-Service` is an official example of MobileCoin's backend and JSON-RPC service. It can manage accounts, sync the ledger, build and submit transactions, and expose wallet-oriented APIs. It also provides explicit SCI-related validation.
 
-> still not the place to store user mnemonics or private keys if we promise  browser-native non-custodial control therefore needs WASM setup in place
+> not the place to store user mnemonics or private keys if we promise  browser-native non-custodial control therefore needs WASM setup in place
 
 ## Stage 3 - Cross-chain trading
 
@@ -72,7 +72,7 @@ The user-facing single-page application for wallet management and MOB transfers 
 - Connect to the Fog Proxy for balance sync and transaction submission
 - Parse and display transaction history from decrypted UTXO data
 
-### WASM Crypto Engine
+### Client WASM Crypto Engine
 
 MobileCoin ecosystem mc-* libraries compiled to WebAssembly and combined within single API. Performs all MobileCoin cryptographic operations locally in the browser. Mnemonic handling, key derivation, address handling, transaction construction and signing. All sensitive data lives inside browser memory and private key authority stays client-side.
 
@@ -82,7 +82,7 @@ The client-side cryptography performance is the biggest technical unknown right 
 
 If full transaction signing and construction in browser proves impractical, we can use `Full-Service` as a complete wallet backend, but with some tradeoffs and compromises on privacy.
 
-### Fog Proxy
+### Fog Proxy Service
 
 Fog nodes let clients discover incoming outputs and current spendable state. Without Fog, the browser cannot efficiently know what funds belong to the user.
 
@@ -103,9 +103,9 @@ A thin broadcast service that accepts already signed transaction payloads from t
 
 It becomes useful when direct browser submission is impractical, when request retries or fails are easier to manage server-side, or when we want to hide raw consensus endpoints.
 
-If the browser can safely submit through the existing gRPC-web or proxy path, then a separate relay is unnecessary.
+Not a mandatory wallet component. If the browser can safely submit through the existing gRPC-web or proxy path, then a separate relay is unnecessary.
 
-It must never accept mnemonics, private keys, or unsigned transaction-authority requests. Not a mandatory wallet component.
+> It must never accept mnemonics, private keys, or unsigned transaction-authority requests.
 
 ## Core MVP Features
 
@@ -136,12 +136,11 @@ The first release will not include:
 
 ---
 
-## High-Level Architecture Overview
+## High-Level Architecture
 
 If complete WASM implementation proves feasible, the MVP will use a client-heavy architecture where hosted infrastructure is limited to browser-compatible MobileCoin network access, and submission of already-signed payloads.
 
 In this model, Fog is used for balance discovery, MobileCoin consensus remains the settlement layer, and no hosted component should ever become trusted with user secrets or unencrypted wallet data.
-
 
 ```
 ┌─────────────────────────────────────────────────────────┐
