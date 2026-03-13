@@ -3,32 +3,18 @@ const docs = {};
 
 // ─── Load markdown from files (fetched relative to the html) ──────
 const fileMap = {
-  design:       'docs/01_system_design.md',
-  arch:         'docs/02_architecture_decisions.md',
-  diagrams:     'docs/03_diagrams.md',
-  structure:    'docs/04_system_components.md',
-  dec1:         'docs/05_frontend_platform.md',
-  dec2:         'docs/06_matching_engine.md',
-  dec3:         'docs/07_asset_integration.md',
-  dec4:         'docs/08_wallet_backend.md',
-  glossary:     'docs/09_glossary.md',
-  research:     'docs/10_initial_research.md'
+  mvp:      'docs/00_mvp.md',
+  phases:   'docs/10_implemetation_phases.md',
+  journeys: 'docs/20_user_journeys.md'
 };
 
 const pageNames = {
-  design:       'System Design',
-  arch:         'Architecture Decisions',
-  diagrams:     'Diagrams',
-  structure:    'Proposed System Components',
-  dec1:         'Decision 1: Frontend Platform',
-  dec2:         'Decision 2: Matching Engine',
-  dec3:         'Decision 3: Asset Integration',
-  dec4:         'Decision 4: Wallet Backend',
-  glossary:     'Glossary',
-  research:     'Initial Research'
+  mvp:      'MVP Roadmap',
+  phases:   'Implementation Phases',
+  journeys: 'User Journeys'
 };
 
-let currentPage = 'design';
+let currentPage = 'mvp';
 let diagramCounter = 0;
 
 // ─── Mermaid init ─────────────────────────────────────────────────
@@ -388,4 +374,4 @@ document.getElementById('content').addEventListener('click', (e) => {
 });
 
 // ─── Initial load ─────────────────────────────────────────────────
-loadPage('design');
+loadPage('mvp');

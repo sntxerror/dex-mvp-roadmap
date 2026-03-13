@@ -1,12 +1,8 @@
-# MobileCoin DEX – Technical Proposal
-
-A comprehensive design document exploring the architecture for a decentralized exchange (DEX) built on the MobileCoin blockchain. The documentation covers system design, architecture decisions, component mapping, and open questions — presented as an interactive single-page application with rendered Mermaid diagrams.
+# MobileCoin DEX – MVP Proposal
 
 ## View Online
 
 **[View the documentation →](https://sntxerror.github.io/mc-dex-proposal/)**
-
-No download required — just open the link.
 
 ## Run Locally
 
@@ -26,21 +22,6 @@ php -S localhost:8000
 Then open [http://localhost:8000](http://localhost:8000).
 
 > **Note:** Opening `index.html` directly as a file won't work — the app uses `fetch()` to load Markdown files, which requires an HTTP server.
-
-## Document Structure
-
-| # | Document | Description |
-|---|----------|-------------|
-| 01 | System Design | Core MobileCoin concepts: Fog, SCI, DEQS, Ring Signatures, WASM |
-| 02 | Architecture Decisions | High-level decision areas with tradeoff summaries |
-| 03 | Diagrams | All architectural diagrams in one place (rendered via Mermaid) |
-| 04 | Proposed System Components | Concrete services mapped to each open decision |
-| 05 | Decision 1: Frontend Platform | Web/WASM vs. Desktop (Electron/Tauri) |
-| 06 | Decision 2: Matching Engine | Order Book + Solver vs. P2P vs. Hybrid |
-| 07 | Decision 3: Asset Integration | Centralized Bridge vs. Federated vs. Atomic Swaps |
-| 08 | Decision 4: Wallet Backend | mobilecoind vs. Full-Service |
-| 09 | Glossary | 30 terms with anchored definitions, linked inline throughout |
-| 10 | Initial Research | Raw research notes and external references |
 
 ## Status
 
